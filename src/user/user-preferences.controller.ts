@@ -1,13 +1,14 @@
 import { Controller, Post, Body, HttpCode, HttpStatus, ConflictException } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import { UserPreferences } from '../user/user-preferences.model';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('User Preferences')
 @Controller('v1/user/preferences')
 export class UserPreferencesController {
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({ summary: 'Create User Preferences' })
   async createUserPreferences(
     @Body() userPreferences: UserPreferences,
   ): Promise<void> {
