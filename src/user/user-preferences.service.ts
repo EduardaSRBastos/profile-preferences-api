@@ -11,11 +11,13 @@ export class UserPreferencesService {
     this.preferencesCollection = admin.firestore().collection('userPreferences');
   }
 
-  async saveUserPreferences(userPreferences: UserPreferences): Promise<void> {
+  async saveUserPreferences(userPreferences: UserPreferences) {
     // Convert the UserPreferences object to a plain JavaScript object
     const userPreferencesData = Object.assign({}, userPreferences);
 
     // Save the data to Firestore
     await this.preferencesCollection.doc(userPreferences.userID).set(userPreferencesData);
+
+    return { message: 'Preferences saved successfully' };
   }
 }

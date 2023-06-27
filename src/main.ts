@@ -10,7 +10,6 @@ async function bootstrap() {
   const serviceAccount = require('../firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    // Add any other necessary configuration options
   });
 
   const app = await NestFactory.create(AppModule);

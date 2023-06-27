@@ -1,7 +1,9 @@
 import { Controller, Post, Body, HttpCode, HttpStatus, ConflictException } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import { UserPreferences } from '../user/user-preferences.model';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('User Preferences')
 @Controller('v1/user/preferences')
 export class UserPreferencesController {
   @Post()
