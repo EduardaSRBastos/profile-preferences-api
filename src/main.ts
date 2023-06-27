@@ -7,7 +7,7 @@ import * as admin from 'firebase-admin';
 
 async function bootstrap() {
   // Initialize Firebase Admin SDK
-  const serviceAccount = require('../firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json');
+  const serviceAccount = require('../../firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
