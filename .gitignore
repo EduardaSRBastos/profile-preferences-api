@@ -34,4 +34,4 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json
+#firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json
