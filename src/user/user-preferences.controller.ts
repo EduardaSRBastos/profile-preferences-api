@@ -11,7 +11,7 @@ export class UserPreferencesController {
   @ApiOperation({ summary: 'Create User Preferences' })
   async createUserPreferences(
     @Body() userPreferences: UserPreferences,
-  ): Promise<void> {
+  ): Promise<any> {
     const firestore = admin.firestore();
     const preferencesCollection = firestore.collection('userPreferences');
 
@@ -23,5 +23,8 @@ export class UserPreferencesController {
 
     // Save the data to Firestore
     await preferencesCollection.doc(userPreferences.userID).set(userPreferences);
+
+    // Return the created resource in the response body
+    return { resource: userPreferences };
   }
 }

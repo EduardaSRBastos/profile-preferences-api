@@ -18,6 +18,6 @@ export class UserPreferencesService {
     // Save the data to Firestore
     await this.preferencesCollection.doc(userPreferences.userID).set(userPreferencesData);
 
-    return { message: 'Preferences saved successfully' };
+    return { resource: userPreferences };
   }
 }
