@@ -29,7 +29,7 @@ Remember to replace the placeholder values (such as Firebase credentials and use
     ```bash
     npm run start
 
-The API will be available at http://localhost:3000.
+The API will be available at http://localhost:3000 and the Swagger UI at http://localhost:3000/api.
 
 ## API Endpoint
 

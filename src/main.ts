@@ -20,7 +20,7 @@ async function ProfilePreferencesAPI() {
   // Swagger API documentation
   const options = new DocumentBuilder()
     .setTitle('Profile Preferences API')
-    .setDescription('API for creating user account preferences')
+    .setDescription('API for creating user account preferences.')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
