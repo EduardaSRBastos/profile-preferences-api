@@ -2,6 +2,9 @@ const { Given, When, Then } = require('@cucumber/cucumber');
 const axios = require('axios');
 const { expect } = require('chai');
 
+/* This is a step definition for the Cucumber test scenario, defined in the userPreferences.feature file.
+It defines the steps for a test scenario that involves sending a POST request to a resource endpoint and 
+verifying the response. */
 let newResource;
 let response;
 
@@ -24,7 +27,6 @@ When('I send a POST request to the resource endpoint', async function () {
 });
 
 /*Then('I should receive a {int} response', function (statusCode) {
-  console.log('Response:', response); // Add this console.log statement
   expect(response).to.exist;
   return new Promise((resolve, reject) => {
     const interval = setInterval(() => {
@@ -42,7 +44,6 @@ Then('I should receive a {int} response', function (statusCode) {
 });
 
 Then('the response body should contain the created resource', function () {
-  console.log('Response:', response); // Add this console.log statement
   expect(response).to.exist;
   return new Promise((resolve, reject) => {
     const interval = setInterval(() => {

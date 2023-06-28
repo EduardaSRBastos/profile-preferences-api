@@ -3,6 +3,8 @@ import * as admin from 'firebase-admin';
 import { UserPreferences } from '../user/user-preferences.model';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
+/* The UserPreferencesController class is a controller that handles the creation of user
+preferences and saves them to a Firestore database. */
 @ApiTags('User Preferences')
 @Controller('v1/user/preferences')
 export class UserPreferencesController {

@@ -5,7 +5,7 @@ import { logger } from './logger';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as admin from 'firebase-admin';
 
-async function bootstrap() {
+async function ProfilePreferencesAPI() {
   // Initialize Firebase Admin SDK
   const serviceAccount = require('../../firebase/profile-preferences-api-firebase-adminsdk-j2irz-5f17f05444.json');
   admin.initializeApp({
@@ -19,9 +19,8 @@ async function bootstrap() {
 
   // Swagger API documentation
   const options = new DocumentBuilder()
-    .setTitle('User Preferences API')
-    .setDescription('API for managing user preferences')
-    .setVersion('1.0')
+    .setTitle('Profile Preferences API')
+    .setDescription('API for creating user account preferences')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
@@ -31,4 +30,4 @@ async function bootstrap() {
   });
 }
 
-bootstrap();
+ProfilePreferencesAPI();

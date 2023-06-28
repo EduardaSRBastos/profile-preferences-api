@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { UserPreferences } from './user-preferences.model';
 import * as admin from 'firebase-admin';
 
+/* The UserPreferencesService class is responsible for saving user preferences to a Firestore
+collection. */
 @Injectable()
 export class UserPreferencesService {
   private readonly preferencesCollection;
