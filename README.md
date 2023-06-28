@@ -19,8 +19,8 @@ To run the Profile Preferences API locally, follow these steps:
 
 3. Set up Firebase:
    
-    Create a new Firebase project and obtain the necessary credentials.
-    Configure Firebase in the project by providing the credentials.
+ * Create a new Firebase project and obtain the necessary credentials.
+ * Configure Firebase in the project by providing the credentials.
 
 4. Start the API server:
 
@@ -49,6 +49,17 @@ To create user preferences, send a POST request to the `/v1/user/preferences` en
   }
    ```
 
+The JSON payload need to include the fields:
+
+ * `userID` (string): User's unique identifier.
+ * `termsAndConditionAccepted` (boolean): Indicates whether the user accepted the terms and conditions.
+ * `languagePreferences` (string): The user's preferred language.
+ * `showProfilePreferences` (boolean): Specifies whether user profile preferences will be displayed.
+ * `showLanguagesPreferences` (boolean): Specifies whether the user's language preferences will be displayed.
+
 ### Response
 
-Upon successful creation, the API will respond with a status code 201 Created and a response body containing the created user preferences.
+Upon successful creation, the API will respond with a status code 201 Created and a response body containing the created user preferences. 
+
+
+Remember to replace the placeholder values (such as Firebase credentials and user ID) with the actual values when setting up and using the API.
