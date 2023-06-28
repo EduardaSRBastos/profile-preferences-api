@@ -9,6 +9,6 @@ services for the application. */
 @Module({
   imports: [],
   controllers: [AppController, UserPreferencesController],
-  providers: [AppService, LoggerService],
+  providers: [AppService],
 })
 export class AppModule {}
