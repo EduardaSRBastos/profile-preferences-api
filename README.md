@@ -22,6 +22,8 @@ To run the Profile Preferences API locally, follow these steps:
  * Create a new Firebase project and obtain the necessary credentials.
  * Configure Firebase in the project by providing the credentials.
 
+Remember to replace the placeholder values (such as Firebase credentials and user ID) with the actual values when setting up and using the API.
+
 4. Start the API server:
 
     ```bash
@@ -61,5 +63,16 @@ The JSON payload need to include the fields:
 
 Upon successful creation, the API will respond with a status code 201 Created and a response body containing the created user preferences. 
 
+### Testing
 
-Remember to replace the placeholder values (such as Firebase credentials and user ID) with the actual values when setting up and using the API.
+To run the tests for the Profile Preferences API, you can use the following commands:
+
+* To run the Jest unit tests:
+
+  ```bash
+  npm run test-jest
+
+* To run the Cucumber integration tests:
+
+  ```bash
+  npm run test-cucumber
