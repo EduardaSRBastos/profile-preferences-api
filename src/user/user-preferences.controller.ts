@@ -1,4 +1,4 @@
-import { Controller, Post, Body, HttpCode, HttpStatus, ConflictException } from '@nestjs/common';
+import { Controller, Post, Body, HttpCode, HttpStatus, ConflictException, BadRequestException } from '@nestjs/common';
 import * as admin from 'firebase-admin';
 import { UserPreferences } from '../user/user-preferences.model';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
@@ -18,10 +18,14 @@ export class UserPreferencesController {
     try {
       // Log the incoming request
       logger.log(`Received request to create user preferences for userID: ${userPreferences.userID}`);
-  
+
+      if (!userPreferences.userID) {
+        throw new BadRequestException('userID is required');
+      }
+
       const firestore = admin.firestore();
       const preferencesCollection = firestore.collection('userPreferences');
-  
+
       // Check if a document with the same user ID already exists
       const existingDoc = await preferencesCollection.doc(userPreferences.userID).get();
       if (existingDoc.exists) {
@@ -29,19 +33,20 @@ export class UserPreferencesController {
         logger.warn('Duplicate request. User preferences already exist.');
         throw new ConflictException('Duplicate request. User preferences already exist.');
       }
-  
+
       // Save the data to Firestore
       await preferencesCollection.doc(userPreferences.userID).set(userPreferences);
-  
+
       // Log the successful creation
       logger.log(`User preferences created for userID: ${userPreferences.userID}`);
-  
+
       // Return the created resource in the response body
       return { resource: userPreferences };
-    } catch (error) {
+    } catch (error:any) {
       // Log any errors that occur during the process
       logger.error(`Error creating user preferences: ${error.message}`, error.stack);
       throw error;
     }
   }
+
 }

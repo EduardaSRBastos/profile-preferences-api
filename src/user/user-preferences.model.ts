@@ -7,25 +7,25 @@ information, with validation of the input. */
 export class UserPreferences {
   @ApiProperty()
   @IsNotEmpty()
-  userID: string;
+  userID?: string;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsBoolean()
-  termsAndConditionAccepted: boolean;
+  termsAndConditionAccepted?: boolean;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  languagePreferences: string;
+  languagePreferences?: string;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsBoolean()
-  showProfilePreferences: boolean;
+  showProfilePreferences?: boolean;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsBoolean()
-  showLanguagesPreferences: boolean;
+  showLanguagesPreferences?: boolean;
 }

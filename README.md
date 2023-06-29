@@ -2,6 +2,16 @@
 
 This is the documentation for the Profile Preferences API. The API allows users to create their account preferences.
 
+## Technology Stack
+
+  *  TypeScript
+  *  Node.js (v16)
+  *  Nest.js (v9)
+  *  Firestore SDK for data storage
+  *  Jest for unit testing
+  *  Cucumber for API/component testing
+  *  Swagger for API documentation
+
 ## Installation
 
 To run the Profile Preferences API locally, follow these steps:
@@ -24,7 +34,7 @@ To run the Profile Preferences API locally, follow these steps:
 
 Remember to replace the placeholder values (such as Firebase credentials and user ID) with the actual values when setting up and using the API.
 
-4. Start the API server:
+1. Start the API server:
 
     ```bash
     npm run start
@@ -63,7 +73,7 @@ The JSON payload need to include the fields:
 
 Upon successful creation, the API will respond with a status code 201 Created and a response body containing the created user preferences. 
 
-### Testing
+## Testing
 
 To run the tests for the Profile Preferences API, you can use the following commands:
 
@@ -76,3 +86,11 @@ To run the tests for the Profile Preferences API, you can use the following comm
 
   ```bash
   npm run test-cucumber
+
+## Deployment
+
+This API is deployed to GCP using Cloud Functions.
+
+## Logging
+
+The API includes logging using the LoggerService from the Nest.js framework.

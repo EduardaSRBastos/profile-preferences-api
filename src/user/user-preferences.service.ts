@@ -22,7 +22,7 @@ export class UserPreferencesService {
       const userPreferencesData = Object.assign({}, userPreferences);
 
       // Save the data to Firestore
-      await this.preferencesCollection.doc(userPreferences.userID).set(userPreferencesData);
+      await this.preferencesCollection.doc(userPreferences.userID!).set(userPreferencesData);
 
       // Log the successful save
       logger.log(`User preferences saved for userID: ${userPreferences.userID}`);

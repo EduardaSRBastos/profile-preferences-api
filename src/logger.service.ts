@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 @Injectable()
 export class LoggerService extends Logger {
   constructor(context?: string) {
-    super(context);
+    super(context || '');
   }
   
   log(message: string) {

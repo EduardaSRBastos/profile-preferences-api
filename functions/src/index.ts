@@ -1,19 +1,17 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+import * as functions from 'firebase-functions';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from '../../src/app.module';
 
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+const runtimeOpts = {
+  timeoutSeconds: 60,
+};
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+const server = async () => {
+  const app = await NestFactory.create(AppModule);
+  await app.init();
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+  // Export the Nest.js app as a Cloud Function
+  return functions.region('europe-west2').runWith(runtimeOpts).https.onRequest(app.getHttpAdapter().getInstance());
+};
+
+export const ProfilePreferencesFunction = server();
